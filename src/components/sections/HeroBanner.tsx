@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import Image from "next/image";
+import logo from "@/images/logo.png";
 
 interface HeroBannerProps {
   title?: string;
@@ -38,7 +40,7 @@ export default function HeroBanner({
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        <div className="absolute inset-0 bg-slate-900/60" />
+        <div className="absolute inset-0 bg-slate-900/65" />
       </div>
 
       {/* Content Container */}
@@ -50,10 +52,12 @@ export default function HeroBanner({
           transition={{ duration: 0.6 }}
           className="mb-8 w-full max-w-xs sm:max-w-sm"
         >
-          <img
-            src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=300&q=80"
+          <Image
+            src={logo}
+            width={400}
+            height={400}
             alt="Elite Glass"
-            className="mx-auto h-24 w-auto rounded-lg bg-black/90 p-3 shadow-lg"
+            className="mx-auto h-full w-full rounded-lg  p-3 shadow-lg"
           />
         </motion.div>
 
@@ -96,7 +100,8 @@ export default function HeroBanner({
             size="lg"
             className="border-white bg-transparent px-8 py-6 text-lg font-semibold text-white hover:bg-white/10"
             onClick={() => {
-              const productsSection = document.getElementById("products");
+              const productsSection =
+                document.getElementById("products-section");
               if (productsSection) {
                 productsSection.scrollIntoView({ behavior: "smooth" });
               }
@@ -116,7 +121,7 @@ export default function HeroBanner({
       >
         <button
           onClick={() => {
-            const productsSection = document.getElementById("products");
+            const productsSection = document.getElementById("products-section");
             if (productsSection) {
               productsSection.scrollIntoView({ behavior: "smooth" });
             }

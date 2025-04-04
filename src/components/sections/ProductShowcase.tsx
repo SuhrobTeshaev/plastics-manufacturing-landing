@@ -213,7 +213,7 @@ const ProductShowcase = () => {
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
-                    {product.category === "windows" ? "Window" : "Door"}
+                    {product.category === "windows" ? "Окна" : "Двери"}
                   </div>
                 </div>
                 <CardContent className="p-6">
@@ -231,12 +231,12 @@ const ProductShowcase = () => {
                     >
                       Подробнее
                     </Button>
-                    <Button
+                    {/* <Button
                       onClick={handleRequestQuote}
                       className="text-sm flex items-center gap-1"
                     >
                       Запросить цену <ArrowRight size={16} />
-                    </Button>
+                    </Button> */}
                   </div>
                 </CardContent>
               </Card>
@@ -251,14 +251,14 @@ const ProductShowcase = () => {
                 <DialogTitle className="text-2xl">
                   {selectedProduct.name}
                 </DialogTitle>
-                <Button
+                {/* <Button
                   variant="ghost"
                   size="icon"
                   className="absolute right-4 top-4"
                   onClick={closeProductDialog}
                 >
                   <X size={18} />
-                </Button>
+                </Button> */}
               </DialogHeader>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="rounded-md overflow-hidden">
@@ -283,19 +283,19 @@ const ProductShowcase = () => {
                   </ul>
                 </div>
               </div>
-              <DialogFooter>
+              {/* <DialogFooter>
                 <Button
                   onClick={handleRequestQuote}
                   className="w-full sm:w-auto"
                 >
                   Запросить цену
                 </Button>
-              </DialogFooter>
+              </DialogFooter> */}
             </DialogContent>
           )}
         </Dialog>
 
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <Button
             size="lg"
             onClick={handleRequestQuote}
@@ -303,7 +303,7 @@ const ProductShowcase = () => {
           >
             Просмотреть все продукты и получить индивидуальное предложение
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -109,11 +109,11 @@ export default function ContactForm({
           <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="mx-auto">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-8 mx-auto">
             <Card>
-              <CardContent className="p-6">
+              <CardContent className="p-6 mx-auto">
                 <h3 className="text-xl font-semibold mb-6">Наши контакты</h3>
 
                 <div className="space-y-6">
@@ -156,7 +156,7 @@ export default function ContactForm({
           </div>
 
           {/* Contact Form */}
-          <div>
+          {/* <div>
             <Card className="shadow-lg">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-6">Оставить заявку</h3>
@@ -309,7 +309,7 @@ export default function ContactForm({
                 </form>
               </CardContent>
             </Card>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
