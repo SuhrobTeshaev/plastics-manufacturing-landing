@@ -19,8 +19,8 @@ interface ContactFormProps {
 }
 
 export default function ContactForm({
-  title = "Elite Glass - Обратная связь",
-  subtitle = "Оставьте заявку или позвоните нам для получения консультации",
+  title = "Elite Glass - Контакты",
+  subtitle = "Свяжитесь с нами для консультации",
   companyAddress = "г. Москва, ул. Промышленная, 123",
   companyPhone = "+9 923 301 00000",
   companyEmail = "info@eliteglass.ru",
@@ -112,11 +112,11 @@ export default function ContactForm({
         <div className="mx-auto">
           {/* Contact Information */}
           <div className="space-y-8 mx-auto">
-            <Card>
-              <CardContent className="p-6 mx-auto">
+            <div>
+              <div className="p-6 mx-auto">
                 <h3 className="text-xl font-semibold mb-6">Наши контакты</h3>
 
-                <div className="space-y-6">
+                <div className=" flex flex-row flex-wrap  justify-between">
                   <div className="flex items-start space-x-4">
                     <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
@@ -125,7 +125,7 @@ export default function ContactForm({
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-4 ">
                     <a
                       href={`tel:${companyPhone.replace(/[^0-9+]/g, "")}`}
                       className="flex items-start space-x-4 hover:text-primary transition-colors"
@@ -151,165 +151,9 @@ export default function ContactForm({
                     </a>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
-
-          {/* Contact Form */}
-          {/* <div>
-            <Card className="shadow-lg">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-6">Оставить заявку</h3>
-
-                {formStatus.submitted && (
-                  <div
-                    className={`mb-6 p-4 rounded-md ${formStatus.success ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700"}`}
-                  >
-                    {formStatus.message}
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-4">
-                    <div>
-                      <Label htmlFor="name">Полное имя *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formState.name}
-                        onChange={handleChange}
-                        placeholder="Ваше полное имя"
-                        className="mt-1"
-                        required
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="email">Электронная почта *</Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formState.email}
-                          onChange={handleChange}
-                          placeholder="ваша.почта@пример.ру"
-                          className="mt-1"
-                          required
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="phone">Номер телефона</Label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          value={formState.phone}
-                          onChange={handleChange}
-                          placeholder="+7 (999) 123-4567"
-                          className="mt-1"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label>Интересующие продукты *</Label>
-                      <RadioGroup
-                        value={formState.productInterest}
-                        onValueChange={handleProductChange}
-                        className="flex flex-col space-y-2 mt-1"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="windows" id="windows" />
-                          <Label htmlFor="windows" className="cursor-pointer">
-                            Окна
-                          </Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="doors" id="doors" />
-                          <Label htmlFor="doors" className="cursor-pointer">
-                            Двери
-                          </Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="both" id="both" />
-                          <Label htmlFor="both" className="cursor-pointer">
-                            Окна и двери
-                          </Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="other" id="other" />
-                          <Label htmlFor="other" className="cursor-pointer">
-                            Другие продукты
-                          </Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="message">Детали проекта *</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formState.message}
-                        onChange={handleChange}
-                        placeholder="Пожалуйста, опишите требования к вашему проекту, размеры, количество или любые конкретные детали..."
-                        className="mt-1"
-                        rows={5}
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <Label>Предпочтительный способ связи</Label>
-                      <RadioGroup
-                        value={formState.preferredContact}
-                        onValueChange={handleRadioChange}
-                        className="flex space-x-4 mt-1"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="email" id="email-contact" />
-                          <Label
-                            htmlFor="email-contact"
-                            className="cursor-pointer"
-                          >
-                            Электронная почта
-                          </Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="phone" id="phone-contact" />
-                          <Label
-                            htmlFor="phone-contact"
-                            className="cursor-pointer"
-                          >
-                            Телефон
-                          </Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div className="flex items-start space-x-2">
-                      <Checkbox
-                        id="privacy"
-                        checked={formState.privacyConsent}
-                        onCheckedChange={handleCheckboxChange}
-                        className="mt-1"
-                      />
-                      <Label htmlFor="privacy" className="text-sm">
-                        Я согласен на обработку моих данных в соответствии с
-                        политикой конфиденциальности. *
-                      </Label>
-                    </div>
-                  </div>
-
-                  <Button type="submit" className="w-full" size="lg">
-                    <Send className="mr-2 h-4 w-4" />
-                    Отправить заявку
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div> */}
         </div>
       </div>
     </section>
