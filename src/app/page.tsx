@@ -5,12 +5,12 @@ import ProductShowcase from "@/components/sections/ProductShowcase";
 import TestimonialCarousel from "@/components/sections/TestimonialCarousel";
 import ContactForm from "@/components/sections/ContactForm";
 import { Separator } from "@/components/ui/separator";
-
+import image from "@/images/7.png"
 import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-background">
+    <main className="flex min-h-screen flex-col  items-center justify-between bg-background">
       {/* Hero Banner Section */}
       <HeroBanner />
 
@@ -35,7 +35,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="w-full py-16 bg-muted/50"
+        className="w-full sm:py-16 bg-muted/50"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -155,7 +155,7 @@ export default function Home() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
         id="about"
-        className="w-full py-16 bg-muted/30"
+        className="w-full sm:py-16 bg-muted/30"
       >
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -165,7 +165,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div>
               <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+                src={image.src}
                 alt="Manufacturing facility"
                 className="rounded-lg shadow-lg w-full h-auto"
               />

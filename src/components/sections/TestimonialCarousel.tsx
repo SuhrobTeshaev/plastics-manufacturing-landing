@@ -40,20 +40,20 @@ export default function TestimonialCarousel({
     },
     {
       id: "2",
-      name: "Елена Смирнова",
+      name: "Мурод Мамаджонов",
       quote:
         "Заказывали пластиковые двери для частного дома. Консультанты помогли выбрать оптимальный вариант, а монтажники установили всё быстро и аккуратно. Двери прекрасно держат тепло и выглядят элегантно.",
       rating: 5,
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
+      image: "",
     },
     {
       id: "3",
-      name: "Игорь Васильев",
+      name: "Афзал Шерматов",
       quote:
         "Сотрудничаем с компанией уже третий год для наших строительных проектов. Всегда точные сроки, конкурентные цены и индивидуальный подход к каждому заказу. Рекомендую как надежного партнера.",
       rating: 4,
       company: "ЗАО 'ГородСтрой'",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Igor",
+      image: "",
     },
     {
       id: "4",
@@ -61,16 +61,16 @@ export default function TestimonialCarousel({
       quote:
         "Заказывала окна для квартиры. Очень довольна качеством продукции и сервисом. Менеджеры были внимательны к моим пожеланиям, а монтаж выполнен профессионально и без лишнего мусора.",
       rating: 5,
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Marina",
+      image: "",
     },
     {
       id: "5",
-      name: "Дмитрий Соколов",
+      name: "Амина Султанова",
       quote:
         "Отличная компания! Заказывал комплексное остекление для загородного дома. Порадовало разнообразие дизайнерских решений и возможность выбрать оптимальную конфигурацию для каждого помещения.",
       rating: 5,
       company: "Частный заказчик",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Dmitry",
+      image: "",
     },
   ],
   title = "Отзывы наших клиентов",
@@ -106,7 +106,7 @@ export default function TestimonialCarousel({
   };
 
   return (
-    <section className="py-16 px-4 md:px-8 bg-gray-50 w-full">
+    <section className="sm:py-16 px-4 md:px-8 bg-gray-50 w-full">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
@@ -135,7 +135,7 @@ export default function TestimonialCarousel({
                               alt={testimonial.name}
                             />
                           ) : (
-                            <AvatarFallback className="bg-primary text-primary-foreground">
+                            <AvatarFallback className="bg-primary  text-primary-foreground">
                               {testimonial.name
                                 .split(" ")
                                 .map((n) => n[0])

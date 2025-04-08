@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { StaticImageData } from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,13 +15,20 @@ import {
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
+import img1 from "@/images/1.png";
+import img2 from "@/images/2.png";
+import img3 from "@/images/3.png";
+import img4 from "@/images/4.png";
+import img5 from "@/images/5.png";
+import img6 from "@/images/6.png";
+import Image from "next/image";
 
 interface Product {
   id: string;
   name: string;
   category: "windows" | "doors";
   description: string;
-  image: string;
+  image: StaticImageData;
   features: string[];
 }
 
@@ -38,8 +46,7 @@ const ProductShowcase = () => {
       category: "windows",
       description:
         "Energy-efficient vinyl windows with superior insulation properties. Perfect for residential buildings seeking to reduce energy costs.",
-      image:
-        "https://images.unsplash.com/photo-1604082787627-530fec8b9901?w=800&q=80",
+      image: img1,
       features: [
         "Triple-pane glass option",
         "UV protection",
@@ -51,11 +58,10 @@ const ProductShowcase = () => {
     {
       id: "2",
       name: "Sliding Patio Doors",
-      category: "doors",
+      category: "windows",
       description:
         "Elegant sliding patio doors that maximize your view while providing excellent thermal performance and security.",
-      image:
-        "https://images.unsplash.com/photo-1600607686527-6fb886090705?w=800&q=80",
+      image: img2,
       features: [
         "Smooth sliding mechanism",
         "Multi-point locking system",
@@ -67,11 +73,10 @@ const ProductShowcase = () => {
     {
       id: "3",
       name: "Casement Windows",
-      category: "windows",
+      category: "doors",
       description:
         "Modern casement windows that open outward for maximum ventilation. Featuring easy-to-clean design and enhanced security.",
-      image:
-        "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80",
+      image: img3,
       features: [
         "Easy-to-operate crank mechanism",
         "Multi-point locking system",
@@ -86,8 +91,7 @@ const ProductShowcase = () => {
       category: "doors",
       description:
         "Durable and secure entry doors that make a statement. Combining aesthetics with superior thermal performance.",
-      image:
-        "https://images.unsplash.com/photo-1506377295352-e3154d43ea9e?w=800&q=80",
+      image: img4,
       features: [
         "Steel reinforced frames",
         "Multiple design options",
@@ -102,8 +106,7 @@ const ProductShowcase = () => {
       category: "windows",
       description:
         "Elegant bay windows that add space, light, and architectural interest to any room. Custom configurations available.",
-      image:
-        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
+      image: img5,
       features: [
         "Custom angles and configurations",
         "Built-in seating option",
@@ -115,11 +118,10 @@ const ProductShowcase = () => {
     {
       id: "6",
       name: "French Doors",
-      category: "doors",
+      category: "windows",
       description:
         "Classic French doors that add elegance and natural light to your space. Available in various styles and finishes.",
-      image:
-        "https://images.unsplash.com/photo-1558642692-9375c4ec5a3c?w=800&q=80",
+      image: img6,
       features: [
         "Traditional or contemporary designs",
         "Multiple glass options",
@@ -156,7 +158,7 @@ const ProductShowcase = () => {
   return (
     <section
       id="products-section"
-      className="py-20 px-4 md:px-8 lg:px-16 bg-gray-50"
+      className="sm:py-20 px-4 md:px-8 lg:px-16 bg-gray-50"
     >
       <div className="container mx-auto">
         <div className="text-center mb-12">
@@ -207,7 +209,7 @@ const ProductShowcase = () => {
             >
               <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white">
                 <div className="relative h-64 overflow-hidden">
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
@@ -262,7 +264,7 @@ const ProductShowcase = () => {
               </DialogHeader>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="rounded-md overflow-hidden">
-                  <img
+                  <Image
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
                     className="w-full h-full object-cover"

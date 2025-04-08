@@ -54,10 +54,10 @@ export default function HeroBanner({
         >
           <Image
             src={logo}
-            width={400}
-            height={400}
+            // width={400}
+            // height={400}
             alt="Elite Glass"
-            className="mx-auto h-full w-full rounded-lg  p-3 shadow-lg"
+            className="mx-auto h-[250px] w-[250px] sm:h-[400px] sm:w-[400px] rounded-lg  p-3 "
           />
         </motion.div>
 
@@ -85,7 +85,7 @@ export default function HeroBanner({
           initial={{ opacity: 0, scale: 0.9 }}
           animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0"
+          className="flex flex-col   space-y-6 sm:flex-row sm:space-x-4 sm:space-y-0"
         >
           <Button
             size="lg"
@@ -113,7 +113,7 @@ export default function HeroBanner({
       </div>
 
       {/* Scroll Down Indicator */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         animate={isLoaded ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 1 }}
@@ -132,7 +132,7 @@ export default function HeroBanner({
           <span className="mb-2 text-sm">Узнать больше</span>
           <ChevronDown className="h-6 w-6 animate-bounce" />
         </button>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }
