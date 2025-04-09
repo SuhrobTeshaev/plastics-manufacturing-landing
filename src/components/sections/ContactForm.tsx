@@ -8,22 +8,26 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Instagram } from "lucide-react";
 
 interface ContactFormProps {
   title?: string;
   subtitle?: string;
   companyAddress?: string;
-  companyPhone?: string;
+  companyPhone1?: string;
+  companyPhone2?: string;
   companyEmail?: string;
+  instagram?: string;
 }
 
 export default function ContactForm({
   title = "Elite Glass - Контакты",
   subtitle = "Свяжитесь с нами для консультации",
-  companyAddress = "г. Москва, ул. Промышленная, 123",
-  companyPhone = "+9 923 301 00000",
+  companyAddress = "г. Душанбе, ул. Карин Ман 130",
+  companyPhone1 = "+992 330 100000",
+  companyPhone2 = "+992 330 110000",
   companyEmail = "info@eliteglass.ru",
+  instagram = "@EliteGlass.tj",
 }: ContactFormProps) {
   const [formState, setFormState] = useState({
     name: "",
@@ -42,7 +46,7 @@ export default function ContactForm({
   }>({ submitted: false, success: false, message: "" });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -125,17 +129,32 @@ export default function ContactForm({
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4 ">
-                    <a
-                      href={`tel:${companyPhone.replace(/[^0-9+]/g, "")}`}
-                      className="flex items-start space-x-4 hover:text-primary transition-colors"
-                    >
-                      <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-                      <div>
-                        <h4 className="font-medium">Телефон</h4>
-                        <p className="text-gray-600">{companyPhone}</p>
-                      </div>
-                    </a>
+                  <div className="flex items-start  space-x-4">
+                    <Phone className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <a
+                        href={`tel:${companyPhone1.replace(/[^0-9+]/g, "")}`}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="flex items-start space-x-4 hover:text-primary transition-colors"
+                      >
+                        <div>
+                          <h4 className="font-medium">Телефон</h4>
+                          <p className="text-gray-600">{companyPhone1}</p>
+                        </div>
+                      </a>
+
+                      <a
+                        href={`tel:${companyPhone2.replace(/[^0-9+]/g, "")}`}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        className="flex items-start space-x-4 hover:text-primary transition-colors"
+                      >
+                        <div>
+                          <p className="text-gray-600">{companyPhone2}</p>
+                        </div>
+                      </a>
+                    </div>
                   </div>
 
                   <div className="flex items-start space-x-4">
@@ -147,6 +166,15 @@ export default function ContactForm({
                       <div>
                         <h4 className="font-medium">Email</h4>
                         <p className="text-gray-600">{companyEmail}</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div>
+                    <a className="flex items-start space-x-4 hover:text-primary transition-colors">
+                      <Instagram className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-medium">Instagram </h4>
+                        <p className="text-gray-600">{instagram}</p>
                       </div>
                     </a>
                   </div>

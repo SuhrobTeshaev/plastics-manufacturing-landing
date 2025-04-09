@@ -16,17 +16,25 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import img1 from "@/images/1.png";
-import img2 from "@/images/2.png";
-import img3 from "@/images/3.png";
-import img4 from "@/images/4.png";
-import img5 from "@/images/5.png";
-import img6 from "@/images/6.png";
+import img2 from "@/images/2.jpg";
+import img3 from "@/images/3.jpg";
+import img4 from "@/images/4.jpg";
+import img5 from "@/images/5.jpg";
+import img6 from "@/images/2.png";
+import img7 from "@/images/7.png";
 import Image from "next/image";
 
 interface Product {
   id: string;
   name: string;
-  category: "windows" | "doors";
+  category:
+    | "windows"
+    | "doors"
+    | "bathrooms"
+    | "interior"
+    | "decor"
+    | "windows-doors"
+    | "interior-exterior";
   description: string;
   image: StaticImageData;
   features: string[];
@@ -36,98 +44,127 @@ const ProductShowcase = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<
-    "all" | "windows" | "doors"
+    "all" | "windows" | "doors" | "bathrooms" | "interior" | "decor" | "windows-doors" | "interior-exterior"
   >("all");
 
   const products: Product[] = [
     {
       id: "1",
-      name: "Premium Vinyl Windows",
+      name: "Цельностеклянные перегородки",
       category: "windows",
       description:
-        "Energy-efficient vinyl windows with superior insulation properties. Perfect for residential buildings seeking to reduce energy costs.",
+        "Цельностеклянные перегородки из закаленного или ламинированного стекла создают эффект открытого пространства, пропуская свет и не загромождая интерьер. Идеальны для офисов, торговых помещений и отелей.",
       image: img1,
       features: [
-        "Triple-pane glass option",
-        "UV protection",
-        "Sound insulation",
-        "Multiple frame colors",
-        "10-year warranty",
+        "Закаленное или ламинированное стекло",
+        "Максимальная прозрачность и светопропускание",
+        "Нет видимого каркаса",
+        "Подходит для офисов, торговых помещений и отелей",
+        "Эстетика современного дизайна",
+        "10-летняя гарантия",
       ],
     },
     {
       id: "2",
-      name: "Sliding Patio Doors",
-      category: "windows",
+      name: "Душевые кабины",
+      category: "bathrooms",
       description:
-        "Elegant sliding patio doors that maximize your view while providing excellent thermal performance and security.",
+        "Душевые кабины из стекла — это идеальный выбор для экономии пространства и создания уникального дизайна в ванной комнате. Современные технологии позволяют применять различные фактуры и рисунки стекла.",
       image: img2,
       features: [
-        "Smooth sliding mechanism",
-        "Multi-point locking system",
-        "Tempered safety glass",
-        "Custom sizing available",
-        "Energy Star certified",
+        "Экономия пространства",
+        "Матовые, прозрачные и пескоструйные рисунки на стекле",
+        "Уникальный дизайн для ванной комнаты",
+        "Простота ухода — достаточно протирать влажной губкой",
+        "Сочетание эстетики и функциональности",
+        "Долговечность и стойкость материала",
       ],
     },
     {
       id: "3",
-      name: "Casement Windows",
-      category: "doors",
+      name: "Межкомнатные раздвижные перегородки",
+      category: "interior",
       description:
-        "Modern casement windows that open outward for maximum ventilation. Featuring easy-to-clean design and enhanced security.",
+        "Межкомнатные раздвижные перегородки идеально подходят для экономии пространства и создания функциональных зон в доме или офисе. Современные материалы и механизмы обеспечивают удобство и стильный внешний вид.",
       image: img3,
       features: [
-        "Easy-to-operate crank mechanism",
-        "Multi-point locking system",
-        "Weather-resistant seals",
-        "Various grid patterns available",
-        "Low-E glass option",
+        "Экономия пространства",
+        "Легкие материалы и удобство в использовании",
+        "Прозрачные или полупрозрачные двери для визуальной легкости",
+        "Современный и привлекательный дизайн",
+        "Широкий выбор материалов и отделок",
+        "Простота в управлении механизмом открывания/закрывания",
       ],
     },
     {
       id: "4",
-      name: "Entry Doors",
-      category: "doors",
+      name: "Зеркало с подцветкой",
+      category: "bathrooms",
       description:
-        "Durable and secure entry doors that make a statement. Combining aesthetics with superior thermal performance.",
+        "Зеркала с подсветкой не только украшают интерьер, но и обеспечивают идеальное освещение для макияжа, бритья и ухода за кожей. Современные модели предлагают различные варианты подсветки и дополнительные функции для повышения комфорта.",
       image: img4,
       features: [
-        "Steel reinforced frames",
-        "Multiple design options",
-        "Custom glass inserts available",
-        "Weather-tight seal",
-        "High security lock systems",
+        "Элегантный стиль и эстетика с мягким или точечным освещением",
+        "Равномерное освещение для улучшенной видимости",
+        "Регулируемая яркость подсветки",
+        "Функция защиты от запотевания",
+        "Дополнительные функции, такие как увлажнение воздуха и звук",
+        "Энергоэффективные LED технологии и долгий срок службы",
+        "Повышенная безопасность и автоматическое выключение",
       ],
     },
     {
       id: "5",
-      name: "Bay Windows",
-      category: "windows",
+      name: "Зеркальное Панно",
+      category: "decor",
       description:
-        "Elegant bay windows that add space, light, and architectural interest to any room. Custom configurations available.",
+        "Зеркальное панно состоит из зеркальных фрагментов, создающих уникальную композицию. Это декоративный элемент, который визуально расширяет пространство, улучшает освещенность и скрывает несовершенства стен и потолков.",
       image: img5,
       features: [
-        "Custom angles and configurations",
-        "Built-in seating option",
-        "Superior insulation",
-        "Variety of interior finishes",
-        "Integrated ventilation options",
+        "Визуальное расширение пространства",
+        "Увеличение освещенности помещения",
+        "Скрытие несовершенств стен и потолков",
+        "Универсальность для различных стилей и помещений",
+        "Разнообразие форм и стилизаций",
+        "Органично вписывается как в большие, так и в маленькие пространства",
+        "Подходит для спальни, ванной, коридора и других помещений",
       ],
     },
     {
       id: "6",
-      name: "French Doors",
-      category: "windows",
+      name: "Окна и двери из алюминия LEGA",
+      category: "windows-doors",
       description:
-        "Classic French doors that add elegance and natural light to your space. Available in various styles and finishes.",
+        "Компания LEGA предлагает изготовление, сборку и монтаж окон, дверей и витражей из алюминия и ПВХ с использованием трехкамерных систем для улучшенной теплоизоляции и шумоизоляции.",
       image: img6,
       features: [
-        "Traditional or contemporary designs",
-        "Multiple glass options",
-        "Solid construction",
-        "Custom sizing",
-        "Coordinating hardware options",
+        "Трехкамерная система для улучшенной тепло- и шумоизоляции",
+        "Элегантный внешний вид с уклонами и округлениями",
+        "Герметичность и долговечность благодаря качественным уплотнителям",
+        "Терморасцепление для улучшенной теплоизоляции и снижения потерь тепла",
+        "Подходит для окон больших размеров",
+        "Монтаж и изготовление под ключ в максимально сжатые сроки",
+        "Алюминиевые профили с 25-30% стекловолокна для повышения теплоизоляции",
+      ],
+    },
+    {
+      id: "7",
+      name: "Ограждения / Перила из закалённого стекла",
+      category: "interior-exterior",
+      description:
+        "Стеклянные ограждения и перила из закалённого стекла обеспечивают высокую прочность, долговечность и безопасность, при этом добавляют эстетичности и визуально расширяют пространство. Они подходят для различных помещений и объектов.",
+      image: img7,
+      features: [
+        "Закалённое стекло, в 6-7 раз прочнее обычного",
+        "Высокая прочность и долговечность, устойчивость к механическим воздействиям",
+        "Безопасность с системой триплекс, предотвращающей распад стекла",
+        "Визуальное расширение пространства",
+        "Простота ухода — легко очищаются от пыли и загрязнений",
+        "Экономия на освещении за счет отражения света",
+        "Экологичность — стекло не содержит вредных химических веществ",
+        // "Простота монтажа, установка не требует много времени",
+        // "Универсальность и возможность вписаться в любой интерьер",
+        // "Эстетичность и привлекательный внешний вид",
       ],
     },
   ];
@@ -173,7 +210,7 @@ const ProductShowcase = () => {
         </div>
 
         <Tabs defaultValue="all" className="mb-12">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3">
+          <TabsList className="flex max-w-5xl w-full   mx-auto  gap-2">
             <TabsTrigger
               value="all"
               onClick={() => setActiveCategory("all")}
@@ -195,6 +232,41 @@ const ProductShowcase = () => {
             >
               Двери
             </TabsTrigger>
+            <TabsTrigger
+              value="bathrooms"
+              onClick={() => setActiveCategory("bathrooms")}
+              className="text-sm md:text-base"
+            >
+              Ванные комнаты
+            </TabsTrigger>
+            <TabsTrigger
+              value="interior"
+              onClick={() => setActiveCategory("interior")}
+              className="text-sm md:text-base"
+            >
+              Интерьер
+            </TabsTrigger>
+            <TabsTrigger
+              value="decor"
+              onClick={() => setActiveCategory("decor")}
+              className="text-sm md:text-base"
+            >
+              Декор
+            </TabsTrigger>
+            <TabsTrigger
+              value="windows-doors"
+              onClick={() => setActiveCategory("windows-doors")}
+              className="text-sm md:text-base"
+            >
+              Окна и двери
+            </TabsTrigger>
+            <TabsTrigger
+              value="interior-exterior"
+              onClick={() => setActiveCategory("interior-exterior")}
+              className="text-sm md:text-base"
+            >
+              Интерьер и экстерьер
+            </TabsTrigger>
           </TabsList>
         </Tabs>
 
@@ -215,7 +287,16 @@ const ProductShowcase = () => {
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
-                    {product.category === "windows" ? "Окна" : "Двери"}
+                    {/* {product.category === "windows" ? "Окна" : "Двери"} */}
+                    {{
+                      windows: "Окна",
+                      doors: "Двери",
+                      bathrooms: "Ванные комнаты",
+                      interior: "Интерьер",
+                      decor: "Декор",
+                      "windows-doors": "Окна и двери",
+                      "interior-exterior": "Интерьер и экстерьер",
+                    }[product.category] || "Неизвестная категория"}
                   </div>
                 </div>
                 <CardContent className="p-6">
@@ -274,7 +355,9 @@ const ProductShowcase = () => {
                   <DialogDescription className="text-base mb-4">
                     {selectedProduct.description}
                   </DialogDescription>
-                  <h4 className="font-bold text-lg mb-2">Key Features:</h4>
+                  <h4 className="font-bold text-lg mb-2">
+                    Ключевые особенности:
+                  </h4>
                   <ul className="space-y-1 mb-6">
                     {selectedProduct.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
