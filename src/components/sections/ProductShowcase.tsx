@@ -16,7 +16,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import img1 from "@/images/1.png";
-import img2 from "@/images/2.jpg";
+import img2 from "@/images/22.png";
 import img3 from "@/images/3.jpg";
 import img4 from "@/images/4.jpg";
 import img5 from "@/images/5.jpg";
@@ -51,7 +51,7 @@ const ProductShowcase = () => {
     {
       id: "1",
       name: "Цельностеклянные перегородки",
-      category: "windows",
+      category: "interior",
       description:
         "Цельностеклянные перегородки из закаленного или ламинированного стекла создают эффект открытого пространства, пропуская свет и не загромождая интерьер. Идеальны для офисов, торговых помещений и отелей.",
       image: img1,
@@ -195,7 +195,7 @@ const ProductShowcase = () => {
   return (
     <section
       id="products-section"
-      className="sm:py-20 px-4 md:px-8 lg:px-16 bg-gray-50"
+      className="sm:py-20 mt-20 sm:mt-[0] sm:px-4 md:px-8 lg:px-16 bg-gray-50"
     >
       <div className="container mx-auto">
         <div className="text-center mb-12">
@@ -209,8 +209,8 @@ const ProductShowcase = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="all" className="mb-12">
-          <TabsList className="flex max-w-5xl w-full   mx-auto  gap-2">
+        <Tabs defaultValue="all" className="mb-12  ">
+          <TabsList className="flex flex-row flex-wrap h-auto  sm:max-w-5xl  w-full  overflow-x-auto sm:overflow-hidden  mx-auto  gap-2">
             <TabsTrigger
               value="all"
               onClick={() => setActiveCategory("all")}

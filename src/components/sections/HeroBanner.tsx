@@ -1,18 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import type { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import logo from "@/images/logo.png";
+import bgImg from "@/images/bg.png";
 
 interface HeroBannerProps {
   title?: string;
   subtitle?: string;
   ctaText?: string;
   onCtaClick?: () => void;
-  backgroundImage?: string;
+  backgroundImage?: StaticImageData;
 }
 
 export default function HeroBanner({
@@ -25,7 +27,7 @@ export default function HeroBanner({
       contactSection.scrollIntoView({ behavior: "smooth" });
     }
   },
-  backgroundImage = "https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=1920&q=80",
+  backgroundImage = bgImg,
 }: HeroBannerProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -34,14 +36,22 @@ export default function HeroBanner({
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-slate-900">
+    <section className="relative h-full  pt-4 pb-10 sm:pb-20 w-full overflow-hidden bg-slate-900">
       {/* Background Image with Overlay */}
-      <div
+      {/* <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="absolute inset-0 bg-slate-900/65" />
-      </div>
+      </div> */}
+      <Image
+        src={backgroundImage}
+        alt="Background"
+        fill
+        className="object-cover object-center z-0"
+        priority
+      />
+      <div className="absolute inset-0 bg-slate-900/65 z-10" />
 
       {/* Content Container */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
@@ -56,6 +66,7 @@ export default function HeroBanner({
             src={logo}
             // width={400}
             // height={400}
+            priority
             alt="Elite Glass"
             className="mx-auto h-[250px] w-[250px] sm:h-[400px] sm:w-[400px] rounded-lg  p-3 "
           />

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col  items-center justify-between bg-background">
+    <main className="flex min-h-screen flex-col gap-4  items-center justify-between bg-background">
       {/* Hero Banner Section */}
       <HeroBanner />
 

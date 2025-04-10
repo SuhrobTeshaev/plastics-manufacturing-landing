@@ -24,9 +24,9 @@ export default function ContactForm({
   title = "Elite Glass - Контакты",
   subtitle = "Свяжитесь с нами для консультации",
   companyAddress = "г. Душанбе, ул. Карин Ман 130",
-  companyPhone1 = "+992 330 100000",
-  companyPhone2 = "+992 330 110000",
-  companyEmail = "info@eliteglass.ru",
+  companyPhone1 = "+992 330100000",
+  companyPhone2 = "+992 330110000",
+  companyEmail = "info@eliteglass.tj",
   instagram = "@EliteGlass.tj",
 }: ContactFormProps) {
   const [formState, setFormState] = useState({
@@ -106,7 +106,7 @@ export default function ContactForm({
   };
 
   return (
-    <section id="contact" className="sm:py-16 px-4 bg-gray-50">
+    <section id="contact" className="sm:py-16  sm:px-4 bg-gray-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
@@ -120,7 +120,7 @@ export default function ContactForm({
               <div className="p-6 mx-auto">
                 <h3 className="text-xl font-semibold mb-6">Наши контакты</h3>
 
-                <div className=" flex flex-row flex-wrap  justify-between">
+                <div className=" flex flex-row flex-wrap gap-6 sm:gap-[0] justify-between">
                   <div className="flex items-start space-x-4">
                     <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
                     <div>
