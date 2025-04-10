@@ -28,8 +28,6 @@ interface Product {
   id: string;
   name: string;
   category:
-    | "windows"
-    | "doors"
     | "bathrooms"
     | "interior"
     | "decor"
@@ -44,7 +42,7 @@ const ProductShowcase = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState<
-    "all" | "windows" | "doors" | "bathrooms" | "interior" | "decor" | "windows-doors" | "interior-exterior"
+    "all" | "bathrooms" | "interior" | "decor" | "windows-doors" | "interior-exterior"
   >("all");
 
   const products: Product[] = [
@@ -210,7 +208,7 @@ const ProductShowcase = () => {
         </div>
 
         <Tabs defaultValue="all" className="mb-12  ">
-          <TabsList className="flex flex-row flex-wrap h-auto  sm:max-w-5xl  w-full  overflow-x-auto sm:overflow-hidden  mx-auto  gap-2">
+          <TabsList className="flex flex-row flex-wrap h-auto  sm:max-w-5xl sm:justify-between   w-full  overflow-x-auto sm:overflow-hidden  mx-auto  gap-2">
             <TabsTrigger
               value="all"
               onClick={() => setActiveCategory("all")}
@@ -218,20 +216,7 @@ const ProductShowcase = () => {
             >
               Все продукты
             </TabsTrigger>
-            <TabsTrigger
-              value="windows"
-              onClick={() => setActiveCategory("windows")}
-              className="text-sm md:text-base"
-            >
-              Окна
-            </TabsTrigger>
-            <TabsTrigger
-              value="doors"
-              onClick={() => setActiveCategory("doors")}
-              className="text-sm md:text-base"
-            >
-              Двери
-            </TabsTrigger>
+          
             <TabsTrigger
               value="bathrooms"
               onClick={() => setActiveCategory("bathrooms")}
@@ -289,8 +274,7 @@ const ProductShowcase = () => {
                   <div className="absolute top-2 right-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">
                     {/* {product.category === "windows" ? "Окна" : "Двери"} */}
                     {{
-                      windows: "Окна",
-                      doors: "Двери",
+                      
                       bathrooms: "Ванные комнаты",
                       interior: "Интерьер",
                       decor: "Декор",
